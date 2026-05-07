@@ -23,6 +23,15 @@ header {
 
 header img {height:40px}
 
+    @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+    100% { transform: scale(1); }
+}
+
+.btn-pulse {
+    animation: pulse 1.5s infinite;
+}
 /* HERO */
 .hero {
     background:url('produto.png') center/cover;
@@ -117,7 +126,22 @@ header img {height:40px}
     width:100%;
 }
 
-.btn {
+.btn-fixo {
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:linear-gradient(135deg, #FFD700, #FFA500);
+    color:black;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(255,200,0,0.5);
+    z-index:999;
+    animation:pulse 1.5s infinite;
+}
+    .btn {
     display:inline-block;
     padding:14px 28px;
     border-radius:12px;
@@ -185,30 +209,39 @@ border-radius:50%;
 <section class="grid">
 
 <div class="produto">
-  <img src="empresa.png">
-  <h3>Camisetas para Empresas</h3>
-  <p>A partir de R$25/un</p>
-  <a class="btn" href="produto-empresa.html">Ver Produto</a>
+  <span class="badge">🔥 Mais vendido</span>
+
+  <img src="produto.jpg">
+  <h3>Camiseta Personalizada</h3>
+  <p>R$59,90</p>
+
+  <a class="btn" href="produto.html">Ver Produto</a>
 </div>
     <div class="produto">
 <img src="produto.png">
 <h3>Camiseta Personalizada</h3>
 <p>R$59,90</p>
-<a class="btn" href="produto.html">Ver Produto</a>
+<a class="btn btn-pulse" href="https://wa.me/5516994539880">
+  Comprar Agora
+</a>
 </div>
 
 <div class="produto">
 <img src="produto.png">
 <h3>Quadro Personalizado</h3>
 <p>R$69,90</p>
-<a class="btn" href="produto.html">Ver Produto</a>
+<a class="btn btn-pulse" href="https://wa.me/5516994539880">
+  Comprar Agora
+</a>
 </div>
 
 <div class="produto">
 <img src="produto.png">
 <h3>Arte Digital</h3>
 <p>R$19,90</p>
-<a class="btn" href="produto.html">Ver Produto</a>
+<a class="btn btn-pulse" href="https://wa.me/5516994539880">
+  Comprar Agora
+</a>
 </div>
 
 </section>
@@ -243,5 +276,8 @@ border-radius:50%;
   </div>
 
 </footer>
+    <a class="btn-fixo" href="https://wa.me/5516994539880">
+🔥 Pedir Agora
+</a>
 </body>
 </html>
