@@ -64,11 +64,25 @@ header img {height:40px}
 
 .btn {
     display:inline-block;
-    margin-top:10px;
-    padding:10px;
-    background:black;
-    color:white;
+    padding:14px 28px;
+    border-radius:10px;
+    background:linear-gradient(135deg, #FFD700, #FFA500);
+    color:black;
+    font-weight:bold;
     text-decoration:none;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(255,215,0,0.3);
+}
+
+/* efeito ao passar o mouse */
+.btn:hover {
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 25px rgba(255,215,0,0.5);
+}
+
+/* efeito clique */
+.btn:active {
+    transform:scale(0.95);
 }
 
 /* WHATS */
