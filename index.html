@@ -34,38 +34,66 @@ header img {height:40px}
     text-align:center;
 }
 
-.footer {
-    background:black;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
+.footer-apple {
+    background:#0a0a0a;
+    color:#ccc;
+    padding:60px 20px 20px;
+    font-family:'Segoe UI', sans-serif;
 }
 
-.footer h3 {
-    color:gold;
+.footer-container {
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.footer-brand h2 {
+    color:white;
+    font-weight:600;
+}
+
+.footer-brand p {
+    font-size:14px;
+    color:#888;
+}
+
+.footer-links,
+.footer-contact {
+    display:flex;
+    flex-direction:column;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    color:white;
     margin-bottom:10px;
 }
 
-.footer a {
-    display:inline-block;
-    margin:15px 0;
-    padding:10px 20px;
-    background:gold;
-    color:black;
+.footer-links a,
+.footer-contact a {
+    color:#aaa;
     text-decoration:none;
-    border-radius:6px;
+    margin:4px 0;
+    transition:0.3s;
 }
 
-.footer .copy {
+.footer-links a:hover,
+.footer-contact a:hover {
+    color:white;
+    transform:translateX(3px);
+}
+
+.footer-bottom {
+    border-top:1px solid #222;
+    margin-top:40px;
+    padding-top:15px;
+    text-align:center;
     font-size:12px;
-    color:gray;
-    margin-top:20px;
+    color:#666;
 }
-    .hero h1 {
-    background:rgba(0,0,0,0.6);
-    padding:20px;
-}
-
 /* GRID PRODUTOS */
 .grid {
     display:grid;
@@ -168,16 +196,34 @@ border-radius:50%;
 </section>
 
 <a class="whatsapp" href="https://wa.me/5516994539880">💬</a>
-<footer class="footer">
-    <h3>NOXART 👑</h3>
+<footer class="footer-apple">
 
-    <p>Arte personalizada em camisetas e quadros</p>
+  <div class="footer-container">
 
-    <a href="https://wa.me/5516994539880">
-        Falar no WhatsApp
-    </a>
+    <div class="footer-brand">
+      <h2>NOXART</h2>
+      <p>Arte personalizada com estilo premium 👑</p>
+    </div>
 
-    <p class="copy">© 2026 NOXART - Todos os direitos reservados</p>
+    <div class="footer-links">
+      <h4>Links</h4>
+      <a href="#">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5516994539880">WhatsApp</a>
+      <p>Atendimento rápido 🚀</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 NOXART — Todos os direitos reservados
+  </div>
+
 </footer>
 </body>
 </html>
