@@ -1,32 +1,151 @@
-<!-- produtos.html -->
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>Produtos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produto - NOXART</title>
+
 <style>
-body {background:#0d0d0d;color:white;font-family:Arial;text-align:center}
-.card {background:#1a1a1a;margin:20px;padding:20px;border-radius:10px}
-.btn {background:gold;padding:10px 20px;color:black;text-decoration:none}
+body {
+    margin:0;
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+/* CONTAINER */
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+/* IMAGEM */
+.img-box {
+    flex:1;
+    min-width:300px;
+    text-align:center;
+}
+
+.img-box img {
+    width:80%;
+    border-radius:10px;
+}
+
+/* INFO */
+.info {
+    flex:1;
+    min-width:300px;
+    padding:20px;
+}
+
+h1 {
+    margin-bottom:10px;
+}
+
+.price {
+    font-size:24px;
+    color:green;
+    margin:10px 0;
+}
+
+.btn {
+    display:inline-block;
+    margin-top:15px;
+    padding:15px 30px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+}
+
+/* DETALHES */
+.details {
+    padding:20px;
+}
+
+.details h2 {
+    margin-bottom:10px;
+}
+
+/* GALERIA */
+.gallery {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.gallery img {
+    width:80px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* WHATS FLOAT */
+.whatsapp {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Produtos 👑</h1>
+<div class="container">
 
-<div class="card">
-<h2>Quadro Personalizado</h2>
-<p>R$69,90</p>
-<a class="btn" href="https://wa.me/5516994539880">Comprar</a>
+<div class="img-box">
+<img id="mainImg" src="produto.jpg">
+
+<div class="gallery">
+<img src="produto.jpg" onclick="trocar(this)">
+<img src="produto.jpg" onclick="trocar(this)">
+<img src="produto.jpg" onclick="trocar(this)">
+</div>
 </div>
 
-<div class="card">
-<h2>Camiseta Personalizada</h2>
-<p>R$59,90</p>
-<a class="btn" href="https://wa.me/5516994539880">Comprar</a>
+<div class="info">
+<h1>Camiseta Personalizada 👕</h1>
+
+<p class="price">R$59,90</p>
+
+<p>
+Transformamos sua foto em uma arte exclusiva e estampamos na camiseta.
+</p>
+
+<ul>
+<li>✔ Você aprova antes</li>
+<li>✔ Alta qualidade</li>
+<li>✔ Presente perfeito</li>
+</ul>
+
+<a class="btn" href="https://wa.me/5516994539880?text=Quero%20essa%20camiseta%20personalizada">
+Comprar pelo WhatsApp
+</a>
+
 </div>
 
-<a href="index.html">⬅ Voltar</a>
+</div>
+
+<div class="details">
+<h2>Descrição</h2>
+<p>
+Após a compra, você envia sua foto e escolhe o estilo (luxo, anime ou realista).
+Criamos a arte e só produzimos após sua aprovação.
+</p>
+</div>
+
+<a class="whatsapp" href="https://wa.me/5516994539880">💬</a>
+
+<script>
+function trocar(img){
+document.getElementById("mainImg").src = img.src;
+}
+</script>
 
 </body>
 </html>
