@@ -72,7 +72,39 @@ header img {height:40px}
     margin:10px 0;
 }
 
-.preco .de {
+
+    .tamanhos {
+    margin:10px 0;
+}
+
+.tamanhos span {
+    display:block;
+    font-size:13px;
+    margin-bottom:5px;
+    color:#555;
+}
+
+.tamanhos button {
+    background:#eee;
+    color:#000;
+    border:none;
+    padding:6px 10px;
+    margin:3px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.tamanhos button:hover {
+    background:#ddd;
+}
+
+/* selecionado */
+.tamanhos button.ativo {
+    background:#ee4d2d;
+    color:#fff;
+}
+    .preco .de {
     text-decoration:line-through;
     color:#999;
     font-size:14px;
@@ -381,8 +413,15 @@ border-radius:50%;
     </div>
 
     <p class="mini">Sublimação branca</p>
-
-  <button class="btn-pulse" onclick="addCarrinho('Camiseta Branca',34.99)">
+<div class="tamanhos">
+  <span>Escolha o tamanho:</span>
+  
+  <button type="button" onclick="selecionarTamanho(this, 'P')">P</button>
+  <button type="button" onclick="selecionarTamanho(this, 'M')">M</button>
+  <button type="button" onclick="selecionarTamanho(this, 'G')">G</button>
+  <button type="button" onclick="selecionarTamanho(this, 'GG')">GG</button>
+</div>
+ <button type="button" onclick="addCarrinhoComTamanho('Camiseta Branca',34.99)">
 🛒 Adicionar ao carrinho
 </button>
   </div>
@@ -468,6 +507,19 @@ window.onload = function(){
     }
   }
 
+}
+let tamanhoSelecionado = "";
+
+function selecionarTamanho(btn, tamanho){
+  tamanhoSelecionado = tamanho;
+
+  // remove seleção anterior
+  btn.parentElement.querySelectorAll("button").forEach(b=>{
+    b.classList.remove("ativo");
+  });
+
+  // marca selecionado
+  btn.classList.add("ativo");
 }
 </script>
 </body>
