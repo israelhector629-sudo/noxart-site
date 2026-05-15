@@ -510,7 +510,48 @@ border-radius:50%;
   </button>
 
 </div>
+<div class="card" data-tipo="infantil">
 
+  <span class="tag">🧒 Infantil</span>
+
+  <div class="img-hover">
+    <img src="infantil.png" class="img1">
+    <img src="modeloInfantil.png" class="img2">
+  </div>
+
+  <h3>Camiseta Infantil Personalizada</h3>
+
+  <div class="preco">
+    <span class="de">R$35,99</span>
+    <span class="por">R$25,99</span>
+  </div>
+
+  <p class="mini">Sublimação branca infantil</p>
+
+  <div class="tamanhos">
+    <span>Escolha o tamanho:</span>
+
+    <button onclick="selecionarTamanho(this, '1')">1</button>
+    <button onclick="selecionarTamanho(this, '2')">2</button>
+    <button onclick="selecionarTamanho(this, '4')">4</button>
+    <button onclick="selecionarTamanho(this, '6')">6</button>
+    <button onclick="selecionarTamanho(this, '8')">8</button>
+    <button onclick="selecionarTamanho(this, '10')">10</button>
+    <button onclick="selecionarTamanho(this, '12')">12</button>
+    <button onclick="selecionarTamanho(this, '14')">14</button>
+    <button onclick="selecionarTamanho(this, '16')">16</button>
+  </div>
+
+  <div class="quantidade">
+    <span>Quantidade:</span>
+    <input type="number" id="qtdInfantil" value="1" min="1">
+  </div>
+
+  <button onclick="enviarPedido('Camiseta Infantil', 25.99)">
+    📲 Pedir no WhatsApp
+  </button>
+
+</div>
 </section>
 
 
@@ -579,13 +620,17 @@ function enviarPedido(nome, preco){
   let tamanho = tamanhoSelecionado || "Não informado";
   let cor = corSelecionada || "Padrão";
 
-  let quantidade = 1;
+let quantidade = 1;
 
-  if(nome.includes("Branca")){
-    quantidade = document.getElementById("qtdBranca").value;
-  } else {
-    quantidade = document.getElementById("qtdColorida").value;
-  }
+if(nome.includes("Branca")){
+  quantidade = document.getElementById("qtdBranca").value;
+} 
+else if(nome.includes("Infantil")){
+  quantidade = document.getElementById("qtdInfantil").value;
+}
+else {
+  quantidade = document.getElementById("qtdColorida").value;
+}
 
   let total = preco * quantidade;
 
