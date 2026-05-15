@@ -78,7 +78,57 @@ header img {height:40px}
     margin-right:8px;
 }
 
+
+    .grid-produtos {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    padding:20px;
+}
+
+.card {
+    background:#fff;
+    border-radius:10px;
+    padding:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card img {
+    width:100%;
+    border-radius:8px;
+}
+
+.tag {
+    position:absolute;
+    background:red;
+    color:#fff;
+    font-size:12px;
+    padding:4px 8px;
+    border-radius:5px;
+}
+
+.preco .de {
+    text-decoration:line-through;
+    color:#888;
+    font-size:13px;
+}
+
 .preco .por {
+    color:#ee4d2d;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button {
+    background:#ee4d2d;
+    color:#fff;
+    border:none;
+    padding:10px;
+    width:100%;
+    border-radius:6px;
+    margin-top:10px;
+}.preco .por {
     color:#00c853;
     font-size:22px;
     font-weight:bold;
@@ -198,6 +248,9 @@ header img {height:40px}
     z-index:999;
     animation:pulse 1.5s infinite;
 }
+   .card {
+    position: relative;
+}
     .btn {
     display:inline-block;
     padding:14px 28px;
@@ -258,93 +311,63 @@ border-radius:50%;
 <img src="logo.png">
 <div>NOXART 👑</div>
 </header>
-
+<div id="carrinho">
+  🛒 Total: R$<span id="total">0</span>
+  <a href="#" id="finalizar">Finalizar</a>
+</div>
+    <select onchange="filtrar(this.value)">
+  <option value="all">Todos</option>
+  <option value="branca">Branca</option>
+  <option value="colorida">Colorida</option>
+</select>
 <section class="hero">
 <h1>Arte personalizada em camisetas e quadros</h1>
 </section>
 
-<section class="grid">
 
-<div class="produto">
 
-  <span class="badge">🔥 Mais vendido</span>
+<section class="grid-produtos">
+<h2 style="text-align:center;">🔥 Camisetas Personalizadas</h2>
+<p style="text-align:center;">A partir de R$34,99 • Escolha tamanho, cor e estampa</p>
+  <div class="card" data-tipo="branca">
+    <span class="tag">🔥 Mais vendido</span>
+    <img src="camiseta.jpg">
 
-  <img src="camiseta.jpg">
+    <h3>Camiseta Personalizada</h3>
 
-  <h3>Camiseta Personalizada</h3>
+    <div class="preco">
+      <span class="de">R$49,99</span>
+      <span class="por">R$34,99</span>
+    </div>
 
-  <div class="box-preco">
-    <p><strong>Branca (Sublimação)</strong></p>
-    <span class="por">R$34,99</span>
+    <p class="mini">Sublimação branca</p>
 
-    <p style="margin-top:10px;"><strong>Colorida (DTF)</strong></p>
-    <span class="por">R$44,99</span>
+   <button onclick="addCarrinho('Camiseta Branca',34.99)">
+🛒 Adicionar ao carrinho
+</button>
+  </div>
+<h2 style="text-align:center;">🔥 Camisetas Personalizadas</h2>
+<p style="text-align:center;">A partir de R$34,99 • Escolha tamanho, cor e estampa</p>
+  <div class="card" data-tipo="colorida">
+    <img src="camiseta2.jpg">
+
+    <h3>Camiseta Colorida DTF</h3>
+
+    <div class="preco">
+      <span class="de">R$59,99</span>
+      <span class="por">R$44,99</span>
+    </div>
+
+    <p class="mini">Alta qualidade</p>
+
+   <button onclick="addCarrinho('Camiseta Branca',34.99)">
+🛒 Adicionar ao carrinho
+</button>
   </div>
 
-  <p class="info">
-    📏 Tamanhos: P, M, G, GG  
-    🎨 Cores: Branca e coloridas  
-    🖨 Estampa: Sublimação ou DTF
-  </p>
-
-  <a class="btn btn-pulse" href="https://wa.me/5516994539880?text=Quero%20camiseta%20personalizada">
-    Pedir no WhatsApp 🔥
-  </a>
-
-</div>
-    <div class="produto">
-  <span class="badge">🔥 Mais vendido</span>
-
-  <img src="empresa.png">
-  <h3>Camiseta Para sua EMPRESA</h3>
-  <p class="preco">
-  <div class="promo-box">
-  <p>🔥 Promoção acaba em:</p>
-  <div id="countdown"></div>
-</div>
-      <span class="de">R$25,90</span>
-  <span class="por">R$20,90</span>
-</p>
-
-  <a class="btn" href="produto-empresa.html">Ver Produto</a>
-</div>
-    <div class="produto">
-<img src="produto.png">
-<h3>Camiseta Personalizada</h3>
-<p class="preco">
-  <span class="de">R$79,90</span>
-  <span class="por">R$59,90</span>
-</p>
-<a class="btn btn-pulse" href="https://wa.me/5516994539880">
-  Comprar Agora
-</a>
-</div>
-
-<div class="produto">
-<img src="produto.png">
-<h3>Quadro Personalizado</h3>
-<p class="preco">
-  <span class="de">R$79,90</span>
-  <span class="por">R$59,90</span>
-</p>
-<a class="btn btn-pulse" href="https://wa.me/5516994539880">
-  Comprar Agora
-</a>
-</div>
-
-<div class="produto">
-<img src="produto.png">
-<h3>Arte Digital</h3>
-<p class="preco">
-  <span class="de">R$79,90</span>
-  <span class="por">R$59,90</span>
-</p>
-<a class="btn btn-pulse" href="https://wa.me/5516994539880">
-  Comprar Agora
-</a>
-</div>
-
 </section>
+
+
 
 <a class="whatsapp" href="https://wa.me/5516994539880">💬</a>
 <footer class="footer-apple">
@@ -381,7 +404,7 @@ border-radius:50%;
 </a>
 <script>
 function startCountdown() {
-    let time = 15 * 60; // 15 minutos
+    let time = 15 * 60;
 
     setInterval(() => {
         let minutes = Math.floor(time / 60);
@@ -389,17 +412,45 @@ function startCountdown() {
 
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        document.getElementById("countdown").innerHTML =
-            minutes + ":" + seconds;
+        let el = document.getElementById("countdown");
+        if(el){
+            el.innerHTML = minutes + ":" + seconds;
+        }
 
         if (time > 0) {
             time--;
         } else {
-            time = 15 * 60; // reinicia automaticamente
+            time = 15 * 60;
         }
     }, 1000);
 }
 
+let total = 0;
+let itens = [];
+
+function addCarrinho(nome, preco){
+  total += preco;
+  itens.push(nome);
+
+  document.getElementById("total").innerText = total.toFixed(2);
+}
+
+document.getElementById("finalizar").onclick = function(){
+  let mensagem = "Quero comprar:\n" + itens.join("\n") + 
+  "\nTotal: R$" + total.toFixed(2);
+
+  window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+}
+
+function filtrar(tipo){
+  document.querySelectorAll('.card').forEach(c=>{
+    if(tipo === 'all' || c.dataset.tipo === tipo){
+      c.style.display = 'block';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+}
 startCountdown();
 </script>
 </body>
