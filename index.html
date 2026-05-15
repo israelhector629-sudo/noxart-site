@@ -509,17 +509,39 @@ window.onload = function(){
 
 }
 let tamanhoSelecionado = "";
+let total = 0;
+let itens = [];
 
 function selecionarTamanho(btn, tamanho){
   tamanhoSelecionado = tamanho;
 
-  // remove seleção anterior
   btn.parentElement.querySelectorAll("button").forEach(b=>{
     b.classList.remove("ativo");
   });
 
-  // marca selecionado
   btn.classList.add("ativo");
+}
+
+function addCarrinho(nome, preco){
+
+  // se for camiseta branca, exige tamanho
+  if(nome.includes("Branca") && !tamanhoSelecionado){
+    alert("Escolha o tamanho 👕");
+    return;
+  }
+
+  let item = nome;
+
+  if(tamanhoSelecionado){
+    item += " - Tam: " + tamanhoSelecionado;
+  }
+
+  total += preco;
+  itens.push(item);
+
+  document.getElementById("total").innerText = total.toFixed(2);
+
+  alert(item + " adicionado 🛒");
 }
 </script>
 </body>
