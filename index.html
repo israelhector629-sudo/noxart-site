@@ -211,7 +211,27 @@ button:active {
     color:white;
 }
 
-.box-preco {
+.img-hover {
+    position:relative;
+}
+
+.img-hover img {
+    width:100%;
+    border-radius:8px;
+    transition:opacity 0.4s ease;
+}
+
+.img2 {
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+}
+
+.img-hover:hover .img2 {
+    opacity:1;
+}
+    .box-preco {
     margin:10px 0;
 }
 
@@ -403,11 +423,10 @@ border-radius:50%;
 
   <div class="card" data-tipo="branca">
     <span class="tag">🔥 Mais vendido</span>
-   <img 
-  src="branca.png" 
-  onmouseover="this.src='modeloB.png'" 
-  onmouseout="this.src='branca.png'"
->
+  <div class="img-hover">
+  <img src="branca.png" class="img1">
+  <img src="modeloB.png" class="img2">
+</div>
 
     <h3>Camiseta Personalizada</h3>
 
@@ -431,7 +450,9 @@ border-radius:50%;
   </div>
 
   <div class="card" data-tipo="colorida">
-    <img src="preta.png">
+     <div class="img-hover">
+  <img src="preta.png" class="img1">
+  <img src="modeloP.png" class="img2">
 
     <h3>Camiseta Colorida DTF</h3>
 
