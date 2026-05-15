@@ -436,13 +436,16 @@ function addCarrinho(nome, preco){
   document.getElementById("total").innerText = total.toFixed(2);
 }
 
-document.getElementById("finalizar").onclick = function(){
-  let mensagem = "Quero comprar:\n" + itens.join("\n") + 
-  "\nTotal: R$" + total.toFixed(2);
+window.onload = function(){
 
-  window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+  document.getElementById("finalizar").onclick = function(){
+    let mensagem = "Quero comprar:\n" + itens.join("\n") + 
+    "\nTotal: R$" + total.toFixed(2);
+
+    window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+  }
+
 }
-
 function filtrar(tipo){
   document.querySelectorAll('.card').forEach(c=>{
     if(tipo === 'all' || c.dataset.tipo === tipo){
