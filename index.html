@@ -452,72 +452,65 @@ border-radius:50%;
 
 <section class="grid-produtos">
 
-  <div class="card" data-tipo="branca">
-    <span class="tag">🔥 Mais vendido</span>
-  <div class="img-hover">
-  <img src="branca.png" class="img1">
-  <img src="modeloB.png" class="img2">
-</div>
+ <div class="card" data-tipo="branca">
 
-    <h3>Camiseta Personalizada</h3>
-
-    <div class="preco">
-      <span class="de">R$49,99</span>
-      <span class="por">R$34,99</span>
-    </div>
-
-    <p class="mini">Sublimação branca</p>
-<div class="tamanhos">
-  <span>Escolha o tamanho:</span>
-  
-  <button type="button" onclick="selecionarTamanho(this, 'P')">P</button>
-  <button type="button" onclick="selecionarTamanho(this, 'M')">M</button>
-  <button type="button" onclick="selecionarTamanho(this, 'G')">G</button>
-  <button type="button" onclick="selecionarTamanho(this, 'GG')">GG</button>
-</div>
- <button type="button" onclick="addCarrinhoComTamanho('Camiseta Branca',34.99)">
-🛒 Adicionar ao carrinho
-</button>
-  </div>
-
-<div class="card" data-tipo="colorida">
-
- <div class="img-hover">
-  <img id="imgColorida" src="preta.png">
-</div>
-
-<div class="cores">
-  <span>Escolha a cor:</span>
-
-  <div class="cor preta" onclick="trocarCor('preta.png', this)"></div>
-  <div class="cor azul" onclick="trocarCor('azul.png', this)"></div>
-  <div class="cor vermelha" onclick="trocarCor('vermelha.png', this)"></div>
-  <div class="cor amarela" onclick="trocarCor('amarela.png', this)"></div>
-</div>
-
-  <h3>Camiseta Colorida DTF</h3>
-
-  <div class="preco">
-    <span class="de">R$59,99</span>
-    <span class="por">R$44,99</span>
-  </div>
-
-  <p class="mini">Alta qualidade</p>
+  <p class="mini">Sublimação branca</p>
 
   <div class="tamanhos">
     <span>Escolha o tamanho:</span>
 
-    <button type="button" onclick="selecionarTamanho(this, 'P')">P</button>
-    <button type="button" onclick="selecionarTamanho(this, 'M')">M</button>
-    <button type="button" onclick="selecionarTamanho(this, 'G')">G</button>
-    <button type="button" onclick="selecionarTamanho(this, 'GG')">GG</button>
+    <button onclick="selecionarTamanho(this, 'P')">P</button>
+    <button onclick="selecionarTamanho(this, 'M')">M</button>
+    <button onclick="selecionarTamanho(this, 'G')">G</button>
+    <button onclick="selecionarTamanho(this, 'GG')">GG</button>
   </div>
 
-  <button type="button" onclick="addCarrinho('Camiseta Colorida',44.99)">
-    🛒 Adicionar ao carrinho
+  <div class="quantidade">
+    <span>Quantidade:</span>
+    <input type="number" id="qtdBranca" value="1" min="1">
+  </div>
+
+  <button onclick="enviarPedido('Camiseta Branca', 34.99)">
+    📲 Pedir no WhatsApp
   </button>
 
 </div>
+
+<div class="card" data-tipo="colorida">
+
+  <div class="img-hover">
+    <img id="imgColorida" src="preta.png">
+  </div>
+
+  <div class="cores">
+    <span>Escolha a cor:</span>
+
+    <div class="cor preta" onclick="trocarCor('preta.png', this)"></div>
+    <div class="cor azul" onclick="trocarCor('azul.png', this)"></div>
+    <div class="cor vermelha" onclick="trocarCor('vermelha.png', this)"></div>
+    <div class="cor amarela" onclick="trocarCor('amarela.png', this)"></div>
+  </div>
+
+  <div class="tamanhos">
+    <span>Escolha o tamanho:</span>
+
+    <button onclick="selecionarTamanho(this, 'P')">P</button>
+    <button onclick="selecionarTamanho(this, 'M')">M</button>
+    <button onclick="selecionarTamanho(this, 'G')">G</button>
+    <button onclick="selecionarTamanho(this, 'GG')">GG</button>
+  </div>
+
+  <div class="quantidade">
+    <span>Quantidade:</span>
+    <input type="number" id="qtdColorida" value="1" min="1">
+  </div>
+
+  <button onclick="enviarPedido('Camiseta Colorida', 44.99)">
+    📲 Pedir no WhatsApp
+  </button>
+
+</div>
+
 </section>
 
 
