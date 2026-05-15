@@ -266,7 +266,38 @@ button:active {
     color:#888;
 }
 
-.footer-links,
+.cores {
+    margin:10px 0;
+}
+
+.cores span {
+    display:block;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.cor {
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    display:inline-block;
+    margin:5px;
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+/* cores */
+.preta { background:black; }
+.azul { background:blue; }
+.vermelha { background:red; }
+.amarela { background:gold; }
+
+/* selecionado */
+.cor.ativo {
+    border:2px solid #ee4d2d;
+    transform:scale(1.2);
+}
+    .footer-links,
 .footer-contact {
     display:flex;
     flex-direction:column;
@@ -451,10 +482,18 @@ border-radius:50%;
 
 <div class="card" data-tipo="colorida">
 
-  <div class="img-hover">
-    <img src="preta.png" class="img1">
-    <img src="modeloP.png" class="img2">
-  </div>
+ <div class="img-hover">
+  <img id="imgColorida" src="preta.png">
+</div>
+
+<div class="cores">
+  <span>Escolha a cor:</span>
+
+  <div class="cor preta" onclick="trocarCor('preta.png', this)"></div>
+  <div class="cor azul" onclick="trocarCor('azul.png', this)"></div>
+  <div class="cor vermelha" onclick="trocarCor('vermelha.png', this)"></div>
+  <div class="cor amarela" onclick="trocarCor('amarela.png', this)"></div>
+</div>
 
   <h3>Camiseta Colorida DTF</h3>
 
@@ -518,7 +557,18 @@ border-radius:50%;
 let total = 0;
 let itens = [];
 
-function addCarrinho(nome, preco){
+function trocarCor(imagem, el){
+  document.getElementById("imgColorida").src = imagem;
+
+  // remove seleção anterior
+  document.querySelectorAll(".cor").forEach(c=>{
+    c.classList.remove("ativo");
+  });
+
+  // marca selecionada
+  el.classList.add("ativo");
+}
+    function addCarrinho(nome, preco){
   total += preco;
   itens.push(nome);
 
