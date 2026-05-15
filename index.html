@@ -95,8 +95,15 @@ header img {height:40px}
 }
 
 .card img {
-    width:50%;
-    border-radius:7px;
+    width:100%;
+    border-radius:8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* efeito ao passar o mouse */
+.card:hover img {
+    transform: scale(1.08);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .tag {
@@ -124,11 +131,42 @@ button {
     background:#ee4d2d;
     color:#fff;
     border:none;
-    padding:10px;
+    padding:12px;
     width:100%;
-    border-radius:6px;
+    border-radius:8px;
     margin-top:10px;
-}.preco .por {
+    font-weight:bold;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+/* hover */
+button:hover {
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* clique */
+button:active {
+    transform:scale(0.95);
+}
+    .card {
+    opacity:0;
+    transform:translateY(30px);
+    animation: aparecer 0.6s ease forwards;
+}
+
+.card:nth-child(2) {
+    animation-delay:0.2s;
+}
+
+@keyframes aparecer {
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+    .preco .por {
     color:#00c853;
     font-size:22px;
     font-weight:bold;
@@ -344,7 +382,7 @@ border-radius:50%;
 
     <p class="mini">Sublimação branca</p>
 
-   <button onclick="addCarrinho('Camiseta Branca',34.99)">
+  <button class="btn-pulse" onclick="addCarrinho('Camiseta Branca',34.99)">
 🛒 Adicionar ao carrinho
 </button>
   </div>
@@ -400,9 +438,7 @@ border-radius:50%;
   </div>
 
 </footer>
-    <a class="btn-fixo" href="https://wa.me/5516994539880">
-🔥 Pedir Agora
-</a>
+ 
 <script>
 function startCountdown() {
     let time = 15 * 60;
