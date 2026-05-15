@@ -601,18 +601,55 @@ function addCarrinho(nome, preco){
   alert(item + " adicionado 🛒");
 }
 
-// FINALIZAR
-window.onload = function(){
-  let finalizarBtn = document.getElementById("finalizar");
+<script>
+let tamanhoSelecionado = "";
+let corSelecionada = "";
 
-  if(finalizarBtn){
-    finalizarBtn.onclick = function(){
-      let mensagem = "Quero comprar:\n" + itens.join("\n") + 
-      "\nTotal: R$" + total.toFixed(2);
+// TAMANHO
+function selecionarTamanho(btn, tamanho){
+  tamanhoSelecionado = tamanho;
 
-      window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
-    }
-  }
+  btn.parentElement.querySelectorAll("button").forEach(b=>{
+    b.classList.remove("ativo");
+  });
+
+  btn.classList.add("ativo");
+}
+
+// COR
+function trocarCor(imagem, el){
+  document.getElementById("imgColorida").src = imagem;
+  corSelecionada = imagem;
+
+  document.querySelectorAll(".cor").forEach(c=>{
+    c.classList.remove("ativo");
+  });
+
+  el.classList.add("ativo");
+}
+
+// ENVIAR PEDIDO
+function enviarPedido(nome, preco){
+
+  let tamanho = tamanhoSelecionado || "Não informado";
+  let cor = corSelecionada || "Padrão";
+
+  let qtdInput = document.getElementById("qtdColorida") || document.getElementById("qtdBranca");
+  let quantidade = qtdInput ? qtdInput.value : 1;
+
+  let total = preco * quantidade;
+
+  let mensagem =
+`🔥 Pedido NOXART
+
+Produto: ${nome}
+Tamanho: ${tamanho}
+Cor: ${cor}
+Quantidade: ${quantidade}
+
+💰 Total: R$${total.toFixed(2)}`;
+
+  window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
 }
 </script>
     <button id="finalizar">Finalizar pedido 🔥</button>
