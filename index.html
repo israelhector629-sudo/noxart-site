@@ -440,28 +440,6 @@ border-radius:50%;
 </footer>
  
 <script>
-function startCountdown() {
-    let time = 15 * 60;
-
-    setInterval(() => {
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        let el = document.getElementById("countdown");
-        if(el){
-            el.innerHTML = minutes + ":" + seconds;
-        }
-
-        if (time > 0) {
-            time--;
-        } else {
-            time = 15 * 60;
-        }
-    }, 1000);
-}
-
 let total = 0;
 let itens = [];
 
@@ -469,29 +447,28 @@ function addCarrinho(nome, preco){
   total += preco;
   itens.push(nome);
 
-  document.getElementById("total").innerText = total.toFixed(2);
+  let totalEl = document.getElementById("total");
+  if(totalEl){
+    totalEl.innerText = total.toFixed(2);
+  }
+
+  alert(nome + " adicionado 🛒");
 }
 
 window.onload = function(){
 
-  document.getElementById("finalizar").onclick = function(){
-    let mensagem = "Quero comprar:\n" + itens.join("\n") + 
-    "\nTotal: R$" + total.toFixed(2);
+  let finalizarBtn = document.getElementById("finalizar");
 
-    window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+  if(finalizarBtn){
+    finalizarBtn.onclick = function(){
+      let mensagem = "Quero comprar:\n" + itens.join("\n") + 
+      "\nTotal: R$" + total.toFixed(2);
+
+      window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+    }
   }
 
 }
-function filtrar(tipo){
-  document.querySelectorAll('.card').forEach(c=>{
-    if(tipo === 'all' || c.dataset.tipo === tipo){
-      c.style.display = 'block';
-    } else {
-      c.style.display = 'none';
-    }
-  });
-}
-startCountdown();
 </script>
 </body>
     <button id="finalizar">Finalizar pedido 🔥</button>
