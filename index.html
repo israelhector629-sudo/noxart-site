@@ -435,10 +435,7 @@ border-radius:50%;
 <img src="logo.png">
 <div>NOXART 👑</div>
 </header>
-<div id="carrinho">
-  🛒 Total: R$<span id="total">0</span>
-  <a href="#" id="finalizar">Finalizar</a>
-</div>
+
     <select onchange="filtrar(this.value)">
   <option value="all">Todos</option>
   <option value="branca">Branca</option>
@@ -547,61 +544,6 @@ border-radius:50%;
 </footer>
  
 <script>
-let total = 0;
-let itens = [];
-let tamanhoSelecionado = "";
-let corSelecionada = "";
-
-// TAMANHO
-function selecionarTamanho(btn, tamanho){
-  tamanhoSelecionado = tamanho;
-
-  btn.parentElement.querySelectorAll("button").forEach(b=>{
-    b.classList.remove("ativo");
-  });
-
-  btn.classList.add("ativo");
-}
-
-// COR
-function trocarCor(imagem, el){
-  document.getElementById("imgColorida").src = imagem;
-  corSelecionada = imagem;
-
-  document.querySelectorAll(".cor").forEach(c=>{
-    c.classList.remove("ativo");
-  });
-
-  el.classList.add("ativo");
-}
-
-// CARRINHO
-function addCarrinho(nome, preco){
-
-  if(nome.includes("Branca") && !tamanhoSelecionado){
-    alert("Escolha o tamanho 👕");
-    return;
-  }
-
-  let item = nome;
-
-  if(tamanhoSelecionado){
-    item += " - Tam: " + tamanhoSelecionado;
-  }
-
-  if(corSelecionada){
-    item += " - Cor: " + corSelecionada;
-  }
-
-  total += preco;
-  itens.push(item);
-
-  document.getElementById("total").innerText = total.toFixed(2);
-
-  alert(item + " adicionado 🛒");
-}
-
-<script>
 let tamanhoSelecionado = "";
 let corSelecionada = "";
 
@@ -634,8 +576,13 @@ function enviarPedido(nome, preco){
   let tamanho = tamanhoSelecionado || "Não informado";
   let cor = corSelecionada || "Padrão";
 
-  let qtdInput = document.getElementById("qtdColorida") || document.getElementById("qtdBranca");
-  let quantidade = qtdInput ? qtdInput.value : 1;
+  let quantidade = 1;
+
+  if(nome.includes("Branca")){
+    quantidade = document.getElementById("qtdBranca").value;
+  } else {
+    quantidade = document.getElementById("qtdColorida").value;
+  }
 
   let total = preco * quantidade;
 
@@ -652,7 +599,7 @@ Quantidade: ${quantidade}
   window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
 }
 </script>
-    <button id="finalizar">Finalizar pedido 🔥</button>
+   
 </body>
     
 </html>
