@@ -556,48 +556,10 @@ border-radius:50%;
 <script>
 let total = 0;
 let itens = [];
-
-function trocarCor(imagem, el){
-  document.getElementById("imgColorida").src = imagem;
-
-  // remove seleção anterior
-  document.querySelectorAll(".cor").forEach(c=>{
-    c.classList.remove("ativo");
-  });
-
-  // marca selecionada
-  el.classList.add("ativo");
-}
-    function addCarrinho(nome, preco){
-  total += preco;
-  itens.push(nome);
-
-  let totalEl = document.getElementById("total");
-  if(totalEl){
-    totalEl.innerText = total.toFixed(2);
-  }
-
-  alert(nome + " adicionado 🛒");
-}
-
-window.onload = function(){
-
-  let finalizarBtn = document.getElementById("finalizar");
-
-  if(finalizarBtn){
-    finalizarBtn.onclick = function(){
-      let mensagem = "Quero comprar:\n" + itens.join("\n") + 
-      "\nTotal: R$" + total.toFixed(2);
-
-      window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
-    }
-  }
-
-}
 let tamanhoSelecionado = "";
-let total = 0;
-let itens = [];
+let corSelecionada = "";
 
+// TAMANHO
 function selecionarTamanho(btn, tamanho){
   tamanhoSelecionado = tamanho;
 
@@ -608,9 +570,21 @@ function selecionarTamanho(btn, tamanho){
   btn.classList.add("ativo");
 }
 
+// COR
+function trocarCor(imagem, el){
+  document.getElementById("imgColorida").src = imagem;
+  corSelecionada = imagem;
+
+  document.querySelectorAll(".cor").forEach(c=>{
+    c.classList.remove("ativo");
+  });
+
+  el.classList.add("ativo");
+}
+
+// CARRINHO
 function addCarrinho(nome, preco){
 
-  // se for camiseta branca, exige tamanho
   if(nome.includes("Branca") && !tamanhoSelecionado){
     alert("Escolha o tamanho 👕");
     return;
@@ -622,6 +596,10 @@ function addCarrinho(nome, preco){
     item += " - Tam: " + tamanhoSelecionado;
   }
 
+  if(corSelecionada){
+    item += " - Cor: " + corSelecionada;
+  }
+
   total += preco;
   itens.push(item);
 
@@ -629,7 +607,22 @@ function addCarrinho(nome, preco){
 
   alert(item + " adicionado 🛒");
 }
+
+// FINALIZAR
+window.onload = function(){
+  let finalizarBtn = document.getElementById("finalizar");
+
+  if(finalizarBtn){
+    finalizarBtn.onclick = function(){
+      let mensagem = "Quero comprar:\n" + itens.join("\n") + 
+      "\nTotal: R$" + total.toFixed(2);
+
+      window.open("https://wa.me/5516994539880?text=" + encodeURIComponent(mensagem));
+    }
+  }
+}
 </script>
-</body>
     <button id="finalizar">Finalizar pedido 🔥</button>
+</body>
+    
 </html>
